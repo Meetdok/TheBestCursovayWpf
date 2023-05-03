@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WebAviasSales
+namespace WebTheBestCursach.Models
 {
     public partial class AduccationForm
     {
@@ -18,5 +18,6 @@ namespace WebAviasSales
         public virtual Documet? Documents { get; set; }
         public virtual Speciality? Speciality { get; set; }
         public virtual User? User { get; set; }
+        public virtual EducationForm? EducationForm { get; set; }
     }
 }

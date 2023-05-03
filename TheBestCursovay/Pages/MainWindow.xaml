@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheBestCursovay"
         mc:Ignorable="d"
-        Title="MainWindow" Height="510" Width="800">
+        Title="Окно пользователя" Height="595" Width="1063" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Grid Margin="0,0,0,-6">
         <Menu Height="23" VerticalAlignment="Top">
             <MenuItem Header="Списки поступления" Cursor="Hand" Height="23">
                 <MenuItem Header="Список" Foreground="#FF080303" Cursor="Hand" Command="{Binding FirstList}"/>
-                <MenuItem Header="Список Поступления" Foreground="#FF080303" Cursor="Hand" Command="{Binding SecondList}"/>
-                </MenuItem>
+                <MenuItem Header="Список Поступления" Foreground="#FF080303" Cursor="Hand" Command="{Binding UserLastList}"/>
+                
+            </MenuItem>
+            <MenuItem Header="Форма Добавления" Foreground="#FF080303" Cursor="Hand" Command="{Binding Profile}"/>
         </Menu>
-        <Frame Content="{Binding CurrentPage}" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+        <Frame Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden" Margin="0,23,0,0"/>
     </Grid>
 </Window>

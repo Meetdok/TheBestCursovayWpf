@@ -9,6 +9,13 @@ namespace TheBestCursovay.Tools
 {
     public class CurrentPageControl
     {
+        private CurrentPageControl()
+        {
+        }
+        static CurrentPageControl instance = new();
+
+        public static CurrentPageControl Instance => instance;
+
         Stack<Page> pages = new Stack<Page>();
 
         public Page Page { get; internal set; }

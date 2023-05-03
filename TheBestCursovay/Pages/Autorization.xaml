@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheBestCursovay"
         mc:Ignorable="d"
-        Title="Autorization" Height="450" Width="300">
+        Title="Autorization" Height="450" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="                  ЛОГИН" Margin="0,139,-0.4,0" VerticalAlignment="Top" Width="294" HorizontalAlignment="Left" FontFamily="Segoe UI Black" FontSize="20" Background="#7FE4CACA"/>
         <Label Content="             Авторизация&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,58,-0.4,0" VerticalAlignment="Top" Height="55" Width="294" FontFamily="Segoe UI Black" FontSize="20"/>
         <TextBox x:Name="TextBox_login" HorizontalAlignment="Left" Height="23" Margin="0,176,-0.4,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Background="#FFDACCCC"/>
         <Label Content="                 ПАРОЛЬ" HorizontalAlignment="Left" Margin="0,199,-0.4,0" VerticalAlignment="Top" Width="294" Height="32" FontFamily="Segoe UI Black" FontSize="20" Background="#7FE4CACA"/>
         <TextBox x:Name="TextBox_password" HorizontalAlignment="Left" Height="23" Margin="0,231,-0.4,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="294"  Background="#FFDACCCC"/>
-        <Button Content="ВОЙТИ" HorizontalAlignment="Left" Margin="98,337,0,0" VerticalAlignment="Top" Width="98" Height="54" Click="Button_Click" FontFamily="Arial Black" FontSize="16" Cursor="Hand"/>
+        <Button Content="ВОЙТИ" HorizontalAlignment="Left" Margin="91,259,0,0" VerticalAlignment="Top" Width="99" Height="16" Click="Button_Click" FontFamily="Arial Black" FontSize="10" Cursor="Hand"/>
+        <Button Content="Регистрация" HorizontalAlignment="Left" Margin="206,259,0,0" VerticalAlignment="Top" Width="84" Height="16" Click="Registration" FontFamily="Arial Black" FontSize="10" Cursor="Hand"/>
     </Grid>
 </Window>

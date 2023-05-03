@@ -12,19 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheBestCursovay.Tools;
 using TheBestCursovay.ViewModels;
 
-namespace TheBestCursovay
+namespace TheBestCursovay.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для LastList.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LastList : Page
     {
-        public MainWindow()
+        public LastList()
         {
             InitializeComponent();
-            DataContext = new MainVM();
+            DataContext = new FirtsListVM();
+        }
+
+        private void MainWindow2_Open(object sender, RoutedEventArgs e)
+        {
+            CurrentPageControl.Instance.SetPage(new MainWindow2());
         }
     }
 }

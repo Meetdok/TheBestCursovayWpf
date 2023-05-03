@@ -11,17 +11,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TheBestCursovay.ViewModels;
+using WebTheBestCursach.Models;
 
-namespace TheBestCursovay
+namespace TheBestCursovay.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow2.xaml
+    /// Логика взаимодействия для ImployerWindow.xaml
     /// </summary>
-    public partial class MainWindow2 : Window
+    public partial class ImployerWindow : Window
     {
-        public MainWindow2()
+        public ImployerWindow()
         {
             InitializeComponent();
+
+            DataContext = new MainVM();
         }
     }
 }

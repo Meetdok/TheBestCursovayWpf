@@ -7,49 +7,50 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
-
+//7247
 namespace TheBestCursovay.Tools
 {
     internal class HttpApi
     {
-        HttpClient client = new HttpClient();
-        string host = "https://localhost:7247/api/";
-        JsonSerializerOptions jsonOpt = new JsonSerializerOptions { 
-            PropertyNameCaseInsensitive = true, 
-            ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve };
-
-        public async Task<string> Post(string controller, string method, object body)
+        static HttpClient client = new HttpClient();
+        static string host = "https://localhost:7247/api/";
+        static JsonSerializerOptions options = new JsonSerializerOptions
         {
-            string url = host + controller;
-            if (!string.IsNullOrEmpty(method))
-                url += $"/{method}";
+            ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve,
+            PropertyNameCaseInsensitive = true
+        };
 
-            Type type = body.GetType();
-            string json = JsonSerializer.Serialize(body, type, jsonOpt);
-            var response = await client.PostAsync(url, new StringContent(json, Encoding.UTF8, "application/json"));
-            return await response.Content.ReadAsStringAsync();
-        }
-
-        internal T Deserialize<T>(string json) where T : class
+        public static async Task<string> Post(string controller, string method, object body)
         {
             try
             {
-                return JsonSerializer.Deserialize<T>(json, jsonOpt);
+                string url = host + controller;
+                if (!string.IsNullOrEmpty(method))
+                    url += $"/{method}";
+                //url += $"/{id}"; для get/delete/put
+                string json = "";
+                if (body != null)
+                    json = JsonSerializer.Serialize(body, body.GetType(), options);
+                var response = await client.PostAsync(url, new StringContent(json, Encoding.UTF8, "application/json"));
+                if (response.IsSuccessStatusCode)
+                    return await response.Content.ReadAsStringAsync();
+                else
+                {
+                    //MessageBox.Show(await response.Content.ReadAsStringAsync());
+                    return "Ошиибка!!";
+                }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
+                return "Предупреждение";
             }
-            return null;
         }
 
-        static HttpApi instance;
 
-        public static HttpApi GetInstance()
+        public static T Deserialize<T>(string json)
         {
-            if (instance == null)
-                instance = new HttpApi();
-            return instance;
+            return JsonSerializer.Deserialize<T>(json, options);
         }
     }
 }
